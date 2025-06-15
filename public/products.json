@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Sinhala achcharu",
+    "slug": "sinhala-achcharu",
+    "image": "https://example.com/images/achcharu.jpg",
+    "desc": "Delicious Sinhala achcharu from the Achcharu category.",
+    "category": "Achcharu"
+  },
+  {
+    "id": 2,
+    "name": "kochchi achcharu",
+    "slug": "kochchi-achcharu",
+    "image": "https://example.com/images/achcharu.jpg",
+    "desc": "Delicious kochchi achcharu from the Achcharu category.",
+    "category": "Achcharu"
+  },
+  {
+    "id": 3,
+    "name": "naimiris achcharu",
+    "slug": "naimiris-achcharu",
+    "image": "https://example.com/images/achcharu.jpg",
+    "desc": "Delicious naimiris achcharu from the Achcharu category.",
+    "category": "Achcharu"
+  },
+  {
+    "id": 4,
+    "name": "polos achcharu",
+    "slug": "polos-achcharu",
+    "image": "https://example.com/images/achcharu.jpg",
+    "desc": "Delicious polos achcharu from the Achcharu category.",
+    "category": "Achcharu"
+  },
+  {
+    "id": 5,
+    "name": "papol achcharu",
+    "slug": "papol-achcharu",
+    "image": "https://example.com/images/achcharu.jpg",
+    "desc": "Delicious papol achcharu from the Achcharu category.",
+    "category": "Achcharu"
+  },
+  {
+    "id": 6,
+    "name": "kerat achcharu",
+    "slug": "kerat-achcharu",
+    "image": "https://example.com/images/achcharu.jpg",
+    "desc": "Delicious kerat achcharu from the Achcharu category.",
+    "category": "Achcharu"
+  }
+]

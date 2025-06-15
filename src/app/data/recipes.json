@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "name": "Sinhala Achcharu",
+    "slug": "sinhala-achcharu",
+    "category": "Achcharu",
+    "image": "https://example.com/images/achcharu.jpg",
+    "ingredients": [
+      "Mixed vegetables (carrot, beans, cucumber, etc.)",
+      "Green chilies",
+      "Mustard seeds",
+      "Vinegar",
+      "Salt",
+      "Sugar",
+      "Turmeric powder",
+      "Chili powder"
+    ],
+    "steps": [
+      "Wash and cut the vegetables into thin strips.",
+      "Mix with salt and let sit for 30 minutes.",
+      "Rinse and drain excess water.",
+      "Add mustard seeds, vinegar, sugar, turmeric, and chili powder.",
+      "Mix well and store in a clean jar."
+    ],
+    "desc": "A classic Sri Lankan spicy pickle made with fresh vegetables and aromatic spices. This achcharu is a staple at festive tables and family gatherings, offering a perfect balance of tangy, spicy, and sweet flavors. Enjoy it as a side with rice, bread, or even on its own as a zesty snack."
+  },
+  {
+    "id": 2,
+    "name": "Ambarella Chutney",
+    "slug": "ambarella-chutney",
+    "category": "Chutney",
+    "image": "https://example.com/images/chutney.jpg",
+    "ingredients": [
+      "Ambarella fruit",
+      "Sugar",
+      "Salt",
+      "Chili powder",
+      "Mustard seeds",
+      "Vinegar"
+    ],
+    "steps": [
+      "Peel and slice ambarella.",
+      "Cook with sugar, salt, and vinegar until soft.",
+      "Add chili powder and mustard seeds.",
+      "Simmer until thickened."
+    ],
+    "desc": "A sweet and tangy chutney made from ambarella fruit, perfect with rice or bread. This chutney is a favorite in Sri Lankan households, known for its vibrant color and unique flavor profile that combines fruity sweetness with a spicy kick."
+  },
+  {
+    "id": 3,
+    "name": "Goraka Paste",
+    "slug": "goraka-paste",
+    "category": "Paste",
+    "image": "https://example.com/images/paste.jpg",
+    "ingredients": [
+      "Goraka (dried garcinia)",
+      "Salt",
+      "Chili powder",
+      "Mustard seeds",
+      "Oil"
+    ],
+    "steps": [
+      "Soak goraka in warm water.",
+      "Grind with salt and chili powder to a paste.",
+      "Heat oil, add mustard seeds, then add paste and cook briefly."
+    ],
+    "desc": "A tangy, spicy paste used to flavor curries and rice dishes. Goraka paste is essential in Sri Lankan cuisine, especially for fish curries, adding a deep sourness and rich color. Its bold taste elevates any dish to a new level of deliciousness."
+  }
+]

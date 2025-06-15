@@ -1,0 +1,129 @@
+[
+  {
+    "id": 1,
+    "name": "Achcharu",
+    "image": "https://example.com/images/achcharu.jpg",
+    "items": [
+      "Sinhala achcharu",
+      "kochchi achcharu",
+      "naimiris achcharu",
+      "polos achcharu",
+      "papol achcharu",
+      "kerat achcharu",
+      "raabu achcharu",
+      "ambarella achcharu",
+      "bilincha achcharu",
+      "amba achcharu",
+      "annasi achcharu",
+      "veralu achcharu",
+      "lovi achcharu",
+      "pera achcharu",
+      "nelli achcharu",
+      "divul achcharu",
+      "vambatu achcharu",
+      "suduluunu achcharu",
+      "mele achcharu",
+      "ruhunu achcharu",
+      "jambu achcharu"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Chutney",
+    "image": "https://example.com/images/chutney.jpg",
+    "items": [
+      "ambarella chutney",
+      "bilincha chutney",
+      "amba chutney",
+      "annaasi chutney",
+      "pera chutney",
+      "lovi chutney"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Bite",
+    "image": "https://example.com/images/bite.jpg",
+    "items": [
+      "kos bite",
+      "kesel bite",
+      "kohila bite",
+      "polos bite",
+      "keselmuwa bite"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Paste",
+    "image": "https://example.com/images/paste.jpg",
+    "items": [
+      "goraka paste",
+      "suduluunu paste",
+      "aba paste",
+      "karapincha paste"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Dehydrate Product",
+    "image": "https://example.com/images/dehydrate_product.jpg",
+    "items": [
+      "murunga kola",
+      "karapincha",
+      "karambu",
+      "green tea",
+      "nilkatarolu mal",
+      "del",
+      "kos",
+      "nivithi",
+      "murunga mada",
+      "indiappa ( nilkatarolu )",
+      "indiappa ( nivithi )",
+      "indiappa ( rathuvadamal )",
+      "kenda kiubs"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Soup",
+    "image": "https://example.com/images/soup.jpg",
+    "items": [
+      "vegitable",
+      "mashroom"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Achcharu Related",
+    "image": "https://example.com/images/achcharu_related.jpg",
+    "items": [
+      "lunudehi viyali",
+      "lunudehi amu",
+      "kochchi lunudehi",
+      "naimiris lunudehi",
+      "chilli paste",
+      "polos chilli paste",
+      "keselmuwa chilli paste",
+      "kohila chilli paste"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Cups",
+    "image": "https://example.com/images/cups.jpg",
+    "items": [
+      "kithul peni",
+      "kithul hakuru",
+      "meepeni",
+      "kiri toffee",
+      "thalakerali",
+      "maasmilos",
+      "rulan",
+      "perol",
+      "candy",
+      "plump",
+      "kissos",
+      "ginger kithul jaggiri"
+    ]
+  }
+]
