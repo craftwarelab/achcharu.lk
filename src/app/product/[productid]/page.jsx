@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { getProductBySlug } from "../../../../lib/database";
 
 export default function ProductPage() {
   const { productid } = useParams();
@@ -11,12 +12,26 @@ export default function ProductPage() {
 
   useEffect(() => {
     if (!productid) return;
-    fetch("/products.json")
-      .then((res) => res.json())
-      .then((products) => {
-        const found = products.find((p) => p.slug === productid);
-        setProduct(found);
-      });
+    // fetch("/products.json")
+    //   .then((res) => res.json())
+    //   .then((products) => {
+    //     const found = products.find((p) => p.slug === productid);
+    //     setProduct(found);
+    //   });
+    const loadData = async () => {
+      const data = await getProductBySlug(productid);
+      console.log("Product data:", data);
+      if (data) {
+        setProduct(data);
+      } else {
+        console.error("Product not found");
+        // router.push("/products");
+      }
+    }
+    loadData().catch((error) => {
+      console.error("Error loading product:", error);
+      // router.push("/products");
+    });
   }, [productid]);
 
   if (!product) {

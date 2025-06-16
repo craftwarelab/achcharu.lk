@@ -2,8 +2,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import { getProductBySlug, placeOrder } from "../../../../lib/database"; // <-- import placeOrder
 
-const WHATSAPP_NUMBER = "94771234567"; // Replace with your business WhatsApp number
+const WHATSAPP_NUMBER = "+94771469494"; // Replace with your business WhatsApp number
 
 export default function CheckoutPage() {
   const { productslug } = useParams();
@@ -11,14 +12,23 @@ export default function CheckoutPage() {
   const [quantity, setQuantity] = useState(1);
   const [customer, setCustomer] = useState({ name: "", phone: "", address: "" });
   const [success, setSuccess] = useState(false);
+  const [sending, setSending] = useState(false);
 
   useEffect(() => {
-    fetch("/products.json")
-      .then((res) => res.json())
-      .then((products) => {
-        const found = products.find((p) => p.slug === productslug);
-        setProduct(found);
-      });
+    const loadData = async () => {
+      const data = await getProductBySlug(productslug);
+      console.log("Product data:", data);
+      if (data) {
+        setProduct(data);
+      } else {
+        console.error("Product not found");
+        // router.push("/products");
+      }
+    }
+    loadData().catch((error) => {
+      console.error("Error loading product:", error);
+      // router.push("/products");
+    });
   }, [productslug]);
 
   if (!product) {
@@ -29,11 +39,31 @@ export default function CheckoutPage() {
     );
   }
 
-  const handleOrder = (e) => {
+  const handleOrder = async (e) => {
     e.preventDefault();
-    const message = `Order for: ${product.name}%0AQuantity: ${quantity}%0AName: ${customer.name}%0APhone: ${customer.phone}%0AAddress: ${customer.address}`;
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
-    setSuccess(true);
+    setSending(true);
+    try {
+      // Prepare order data
+      const orderData = {
+        productId: product.id,
+        productName: product.name,
+        productSlug: product.slug,
+        price: typeof product.price === "number" ? product.price : 0, // Ensure price is a number
+        quantity: Number(quantity),
+        customerName: customer.name,
+        customerPhone: customer.phone,
+        customerAddress: customer.address,
+      };
+      // Save order to database
+      await placeOrder(orderData);
+      setSuccess(true);
+      // Send to WhatsApp
+      const message = `Order for: ${product.name}%0AQuantity: ${quantity}%0AName: ${customer.name}%0APhone: ${customer.phone}%0AAddress: ${customer.address}`;
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+    } catch (err) {
+      alert("Failed to place order. Please try again.");
+    }
+    setSending(false);
   };
 
   return (
@@ -67,7 +97,13 @@ export default function CheckoutPage() {
             Address
             <textarea value={customer.address} onChange={e => setCustomer({ ...customer, address: e.target.value })} className="mt-1 p-2 rounded bg-[#181111] border border-orange-700 text-white focus:ring-2 focus:ring-orange-400" required />
           </label>
-          <button type="submit" className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition mt-4 text-lg tracking-wide">Order via WhatsApp</button>
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition mt-4 text-lg tracking-wide"
+            disabled={sending}
+          >
+            {sending ? "Placing Order..." : "Order via WhatsApp"}
+          </button>
         </form>
         {success && (
           <div className="mt-6 text-green-400 font-bold text-center animate-bounce">Order sent to WhatsApp!</div>

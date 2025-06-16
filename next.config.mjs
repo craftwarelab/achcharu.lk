@@ -5,7 +5,22 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'example.com',
-        pathname: '/images/**',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lakpura.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.lakpura.com',
+        pathname: '/**',
+      },
+       {
+        protocol: 'https',
+        hostname: 'upulniexpress.lk',
+        pathname: '/**',
       },
     ],
   },

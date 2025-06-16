@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
+import Link from "next/link";
 
 const themes = {
   dark: {
@@ -104,8 +105,8 @@ export default function Home() {
           Discover the vibrant flavors of Sri Lankan home-made spicy foods! Explore authentic recipes, cooking tips, and the stories behind your favorite dishes.
         </p>
         <div className="flex gap-4 mt-6">
-          <a href="/recipes" className={`rounded-full ${t.accent} px-6 py-2 font-medium shadow focus:outline-none transition-all`} tabIndex={0} aria-label="Browse Recipes">Browse Recipes</a>
-          <a href="/about" className={`rounded-full border ${t.card} px-6 py-2 font-medium shadow focus:outline-none transition-all`} tabIndex={0} aria-label="About Us">About Us</a>
+          <Link href="/recipes" className={`rounded-full ${t.accent} px-6 py-2 font-medium shadow focus:outline-none transition-all`} tabIndex={0} aria-label="Browse Recipes">Browse Recipes</Link>
+          <Link href="/about" className={`rounded-full border ${t.card} px-6 py-2 font-medium shadow focus:outline-none transition-all`} tabIndex={0} aria-label="About Us">About Us</Link>
         </div>
       </section>
       {/* Category Grid Section */}
@@ -157,7 +158,7 @@ export default function Home() {
         <p className="max-w-2xl mx-auto mb-4">
           Try our most popular spicy achcharu recipe, loved by everyone for its unique taste and aroma!
         </p>
-        <a href="/recipes/featured" className={`inline-block rounded-full ${t.accent} px-6 py-2 font-medium shadow focus:outline-none transition-all`} tabIndex={0} aria-label="See Featured Recipe">See Recipe</a>
+        <Link href="/recipes/featured" className={`inline-block rounded-full ${t.accent} px-6 py-2 font-medium shadow focus:outline-none transition-all`} tabIndex={0} aria-label="See Featured Recipe">See Recipe</Link>
       </section>
       {/* Sri Lankan Spices Section with Carousel */}
       <section className={`py-10 px-4 sm:px-12 text-center ${t.section}`} aria-labelledby="spices-heading">
@@ -236,7 +237,7 @@ export default function Home() {
       {/* Call to Action Section */}
       <section className={`flex flex-col items-center justify-center py-12 ${t.section}`} aria-labelledby="cta-heading">
         <h2 id="cta-heading" className="text-2xl font-bold mb-4 text-orange-400 drop-shadow">Ready to Spice Up Your Kitchen?</h2>
-        <a href="/recipes" className={`rounded-full ${t.accent} px-8 py-3 font-medium text-lg shadow focus:outline-none transition-all`} tabIndex={0} aria-label="Start Cooking">Start Cooking</a>
+        <Link href="/recipes" className={`rounded-full ${t.accent} px-8 py-3 font-medium text-lg shadow focus:outline-none transition-all`} tabIndex={0} aria-label="Start Cooking">Start Cooking</Link>
       </section>
       {/* Newsletter Signup Section */}
       <section className={`py-10 px-4 sm:px-12 text-center ${t.section}`} aria-labelledby="newsletter-heading">

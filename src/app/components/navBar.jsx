@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { getAllProducts } from "../../../lib/database";
 
 export default function Navbar() {
   const [categories, setCategories] = useState([]);
@@ -13,9 +14,16 @@ export default function Navbar() {
     fetch("/catogory.json")
       .then((res) => res.json())
       .then(setCategories);
-    fetch("/products.json")
-      .then((res) => res.json())
-      .then(setProducts);
+    // fetch("/products.json")
+    //   .then((res) => res.json())
+    //   .then(setProducts);
+    const loadData = async () => {
+      const data = await getAllProducts();
+      setProducts(data);
+    }
+    loadData().catch((error) => {
+      console.error("Error loading products:", error);
+    });
   }, []);
 
   const navLinks = [

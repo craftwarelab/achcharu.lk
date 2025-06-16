@@ -1,0 +1,68 @@
+'use client';
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { getProductsByCategoryName, getAllCategories } from "../../../../lib/database";
+import Link from "next/link";
+import Image from "next/image";
+
+export default function ProductsByCategoryPage() {
+  const { slug } = useParams();
+  const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      const cats = await getAllCategories();
+      const cat = cats.find((c) => c.name === slug);
+      setCategory(cat);
+      if (cat) {
+        const prods = await getProductsByCategoryName(cat.name);
+        setProducts(prods);
+      } else {
+        setProducts([]);
+      }
+      setLoading(false);
+    }
+    fetchData();
+  }, [slug]);
+
+  return (
+    <div className="min-h-screen bg-[#181111] text-[#fff8f0] px-4 py-12">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold text-orange-400 mb-6 text-center">
+          {category ? category.name : "Category"} Products
+        </h1>
+        {loading ? (
+          <div className="text-center text-orange-200">Loading...</div>
+        ) : products.length === 0 ? (
+          <div className="text-center text-orange-200">No products found in this category.</div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {products.map((prod) => (
+              <Link
+                key={prod.id}
+                href={`/products/${prod.slug}`}
+                className="bg-[#231313] rounded-lg shadow-lg p-4 border border-[#2d1616] flex flex-col items-center hover:bg-[#2d1616] transition"
+              >
+                {prod.image && (
+                  <Image
+                    src={prod.image}
+                    alt={prod.name}
+                    width={120}
+                    height={120}
+                    className="rounded mb-2"
+                  />
+                )}
+                <div className="font-bold text-lg text-orange-300 mb-1">{prod.name}</div>
+                <div className="text-orange-200 mb-2">{prod.price ? `Rs. ${prod.price}` : "-"}</div>
+                <div className="text-orange-100 text-sm text-center">{prod.desc}</div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

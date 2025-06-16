@@ -2,26 +2,39 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
+import { getRecipeBySlug } from "../../../../lib/database";
 
 export default function SingleRecipePage() {
   const { recipeID } = useParams();
   const router = useRouter();
   const [recipe, setRecipe] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!recipeID) return;
-    fetch("/recipes.json")
-      .then((res) => res.json())
-      .then((recipes) => {
-        const found = recipes.find((r) => r.slug === recipeID);
+    getRecipeBySlug(recipeID)
+      .then((found) => {
         setRecipe(found);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
       });
   }, [recipeID]);
 
-  if (!recipe) {
+  if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#181111] text-[#fff8f0]">
         <span>Loading...</span>
+      </div>
+    );
+  }
+  if (error || !recipe) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#181111] text-red-400">
+        <span>{error || "Recipe not found."}</span>
       </div>
     );
   }
@@ -69,17 +82,14 @@ export default function SingleRecipePage() {
             Ingredients
           </h2>
           <ul className="list-disc list-inside text-orange-100">
-            {recipe.ingredients.map((ing, idx) => (
-              <li key={idx}>{ing}</li>
-            ))}
+            {recipe.ingredients &&
+              recipe.ingredients.map((ing, idx) => <li key={idx}>{ing}</li>)}
           </ul>
         </div>
         <div className="w-full mb-4">
           <h2 className="text-xl font-bold text-orange-300 mb-2">Steps</h2>
           <ol className="list-decimal list-inside text-orange-100">
-            {recipe.steps.map((step, idx) => (
-              <li key={idx}>{step}</li>
-            ))}
+            {recipe.steps && recipe.steps.map((step, idx) => <li key={idx}>{step}</li>)}
           </ol>
         </div>
         <button

@@ -2,18 +2,28 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getAllProducts } from "../../../lib/database";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/products.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        setLoading(false);
-      });
+    // fetch("/products.json")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setProducts(data);
+    //     setLoading(false);
+    //   });
+    const loaddata = async () => {
+      const data = await getAllProducts();
+      setProducts(data);
+      setLoading(false);
+    };
+    loaddata().catch((error) => {
+      console.error("Error loading products:", error);
+      setLoading(false);
+    });
   }, []);
 
   return (

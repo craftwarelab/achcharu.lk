@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getAllRecipes } from "../../../lib/database";
 
 export default function RecipesPage() {
   const [recipes, setRecipes] = useState([]);
@@ -9,11 +10,7 @@ export default function RecipesPage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/recipes.json")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to load recipes");
-        return res.json();
-      })
+    getAllRecipes()
       .then((data) => {
         setRecipes(data);
         setLoading(false);
