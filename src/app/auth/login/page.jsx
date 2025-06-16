@@ -34,7 +34,7 @@ export default function AdminLogin() {
         <input type="password" className="w-full mb-6 px-4 py-2 rounded bg-[#181111] border border-orange-900 focus:outline-none focus:ring-2 focus:ring-orange-400" value={password} onChange={e => setPassword(e.target.value)} required />
         <button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 rounded transition">Login</button>
         <div className="mt-4 text-center text-orange-200">
-          No account? <Link href="/admin/register" className="text-orange-400 hover:underline">Register</Link>
+          No account? <Link href="/auth/register" className="text-orange-400 hover:underline">Register</Link>
         </div>
       </form>
       <style jsx>{`

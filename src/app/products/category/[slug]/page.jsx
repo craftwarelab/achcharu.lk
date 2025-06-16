@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { getProductsByCategoryName, getAllCategories } from "../../../../lib/database";
+import { getProductsByCategoryName, getAllCategories } from "../../../../../lib/database";
 import Link from "next/link";
 import Image from "next/image";
 
