@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { getProductBySlug, placeOrder } from "../../../../lib/database"; // <-- import placeOrder
 
@@ -8,6 +8,7 @@ const WHATSAPP_NUMBER = "+94771469494"; // Replace with your business WhatsApp n
 
 export default function CheckoutPage() {
   const { productslug } = useParams();
+  const searchParams = useSearchParams();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [customer, setCustomer] = useState({ name: "", phone: "", address: "" });
@@ -29,6 +30,12 @@ export default function CheckoutPage() {
       console.error("Error loading product:", error);
       // router.push("/products");
     });
+    // Set quantity from query param if present
+    const qtyParam = searchParams?.get("qty");
+    if (qtyParam && !isNaN(Number(qtyParam)) && Number(qtyParam) > 0) {
+      setQuantity(Number(qtyParam));
+    }
+    // eslint-disable-next-line
   }, [productslug]);
 
   if (!product) {
@@ -78,7 +85,14 @@ export default function CheckoutPage() {
           <div className="flex gap-4">
             <label className="flex-1 flex flex-col text-orange-200">
               Quantity
-              <input type="number" min="1" value={quantity} onChange={e => setQuantity(e.target.value)} className="mt-1 p-2 rounded bg-[#181111] border border-orange-700 text-white focus:ring-2 focus:ring-orange-400" required />
+              <input
+                type="number"
+                min="1"
+                value={quantity}
+                onChange={e => setQuantity(e.target.value)}
+                className="mt-1 p-2 rounded bg-[#181111] border border-orange-700 text-white focus:ring-2 focus:ring-orange-400"
+                required
+              />
             </label>
             <div className="flex flex-col text-orange-200">
               <span>Price</span>

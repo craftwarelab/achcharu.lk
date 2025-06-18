@@ -3,24 +3,24 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'example.com',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "postimages.org",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'lakpura.com',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "postimg.cc",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'www.lakpura.com',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "i.postimg.cc",
+        pathname: "/**",
       },
-       {
-        protocol: 'https',
-        hostname: 'upulniexpress.lk',
-        pathname: '/**',
+      {
+        protocol: "https",
+        hostname: "upulniexpress.lk",
+        pathname: "/**",
       },
     ],
   },

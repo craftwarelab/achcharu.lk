@@ -10,7 +10,7 @@ import {
 export default function CategoriesPage() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [form, setForm] = useState({ name: "" });
+  const [form, setForm] = useState({ name: "", image: "", slug: "" });
   const [editing, setEditing] = useState(null);
   const [status, setStatus] = useState("");
 
@@ -29,18 +29,58 @@ export default function CategoriesPage() {
     setLoading(false);
   }
 
+  // Utility to generate slug from name and ensure uniqueness
+  const generateSlug = (name) => {
+    let baseSlug = name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-");
+    let slug = baseSlug;
+    let count = 1;
+    while (
+      categories.some(
+        (c) => c.slug === slug && (!editing || c.id !== editing)
+      )
+    ) {
+      slug = `${baseSlug}-${count++}`;
+    }
+    return slug;
+  };
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    if (name === "name") {
+      const newSlug = generateSlug(value);
+      setForm(f => ({
+        ...f,
+        name: value,
+        slug: newSlug,
+      }));
+    } else {
+      setForm(f => ({
+        ...f,
+        [name]: value
+      }));
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("");
+    if (!form.image) {
+      setStatus("Image is required.");
+      return;
+    }
     try {
       if (editing) {
-        await updateCategory(editing, { name: form.name });
+        await updateCategory(editing, { name: form.name, image: form.image, slug: form.slug });
         setStatus("Category updated!");
       } else {
-        await addCategory({ name: form.name });
+        await addCategory({ name: form.name, image: form.image, slug: form.slug });
         setStatus("Category added!");
       }
-      setForm({ name: "" });
+      setForm({ name: "", image: "", slug: "" });
       setEditing(null);
       fetchCategories();
     } catch (err) {
@@ -49,7 +89,7 @@ export default function CategoriesPage() {
   };
 
   const handleEdit = (cat) => {
-    setForm({ name: cat.name });
+    setForm({ name: cat.name, image: cat.image || "", slug: cat.slug || "" });
     setEditing(cat.id);
     setStatus("");
   };
@@ -75,8 +115,27 @@ export default function CategoriesPage() {
           placeholder="Category Name"
           className="p-2 rounded bg-[#181111] border border-orange-700 text-white"
           value={form.name}
-          onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+          onChange={handleInput}
+          name="name"
           required
+        />
+        <input
+          type="text"
+          placeholder="Image URL"
+          className="p-2 rounded bg-[#181111] border border-orange-700 text-white"
+          value={form.image}
+          onChange={handleInput}
+          name="image"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Slug"
+          disabled={true}
+          className="p-2 rounded bg-[#181111] border border-orange-700 text-orange-400"
+          value={form.slug}
+          name="slug"
+          readOnly
         />
         <button
           type="submit"
@@ -90,7 +149,7 @@ export default function CategoriesPage() {
             className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition"
             onClick={() => {
               setEditing(null);
-              setForm({ name: "" });
+              setForm({ name: "", image: "", slug: "" });
               setStatus("");
             }}
           >
@@ -109,6 +168,7 @@ export default function CategoriesPage() {
             <thead>
               <tr className="bg-[#2d1616] text-orange-300">
                 <th className="px-4 py-2">Name</th>
+                <th className="px-4 py-2">Image</th>
                 <th className="px-4 py-2">Actions</th>
               </tr>
             </thead>
@@ -116,6 +176,11 @@ export default function CategoriesPage() {
               {categories.map((cat) => (
                 <tr key={cat.id} className="border-b border-[#2d1616]">
                   <td className="px-4 py-2">{cat.name}</td>
+                  <td className="px-4 py-2">
+                    {cat.image && (
+                      <img src={cat.image} alt={cat.name} className="w-12 h-12 object-cover rounded" />
+                    )}
+                  </td>
                   <td className="px-4 py-2 flex gap-2">
                     <button
                       className="bg-orange-400 hover:bg-orange-600 text-white font-bold py-1 px-3 rounded"
@@ -139,22 +204,3 @@ export default function CategoriesPage() {
     </div>
   );
 }
-//                     >
-//                       Edit
-//                     </button>
-//                     <button
-//                       className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded"
-//                       onClick={() => handleDelete(cat.id)}
-//                     >
-//                       Delete
-//                     </button>
-//                   </td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       )}
-//     </div>
-//   );
-// }

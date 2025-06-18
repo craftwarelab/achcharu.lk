@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { getProductsByCategoryName, getAllCategories } from "../../../../../lib/database";
+import { getProductsByCategorySlug, getAllCategories } from "../../../../../lib/database";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,10 +15,10 @@ export default function ProductsByCategoryPage() {
     async function fetchData() {
       setLoading(true);
       const cats = await getAllCategories();
-      const cat = cats.find((c) => c.name === slug);
+      const cat = cats.find((c) => c.slug === slug);
       setCategory(cat);
       if (cat) {
-        const prods = await getProductsByCategoryName(cat.name);
+        const prods = await getProductsByCategorySlug(cat.slug);
         setProducts(prods);
       } else {
         setProducts([]);
@@ -50,14 +50,23 @@ export default function ProductsByCategoryPage() {
                   <Image
                     src={prod.image}
                     alt={prod.name}
-                    width={120}
-                    height={120}
-                    className="rounded mb-2"
+                    width={520}
+                    height={520}
+                    className="rounded mb-2 object-cover w-[220px] h-[200px] border-2 border-orange-800 shadow-lg"
                   />
                 )}
-                <div className="font-bold text-lg text-orange-300 mb-1">{prod.name}</div>
+                {/* <div className="font-bold text-lg text-orange-300 mb-1">{prod.name}</div>
                 <div className="text-orange-200 mb-2">{prod.price ? `Rs. ${prod.price}` : "-"}</div>
-                <div className="text-orange-100 text-sm text-center">{prod.desc}</div>
+                <div className="text-orange-100 text-sm text-center">{prod.desc}</div> */}
+                <h2 className="text-xl font-extrabold text-orange-300 mb-2 text-center drop-shadow">{prod.name}</h2>
+                <p className="text-orange-200 text-center text-sm mb-4 italic">
+                  {prod.desc && prod.desc.length > 10 ? prod.desc.slice(0, 100) + "..." : prod.desc}
+                </p>
+                {prod.price && (
+                  <div className="text-orange-400 font-bold mb-2">Price: Rs. {prod.price}</div>
+                )}
+                <div className="text-orange-400 text-xs mb-4">Category: {prod.category}</div>
+                <Link href={`/products/${prod.slug}`} className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-6 py-2 rounded-full shadow-lg transition mt-auto text-sm tracking-wide focus:outline-none focus:ring-2 focus:ring-orange-400">View Details</Link>
               </Link>
             ))}
           </div>
