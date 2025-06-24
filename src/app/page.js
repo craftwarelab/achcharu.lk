@@ -7,6 +7,7 @@ import {
   getAllProducts,
   getAllRecipes,
 } from "../../lib/database";
+import { FaWhatsapp } from "react-icons/fa";
 
 const bannerSlides = [
   {
@@ -190,7 +191,7 @@ export default function Home() {
                 <Image
                   src={prod.image || "/logo.png"}
                   alt={prod.name}
-                width={200}
+                  width={200}
                   height={200}
                   className="rounded-full border-1 object-cover w-[100px] h-[100px] border-orange-500 mb-4 bg-[#181111]"
                 />
@@ -309,6 +310,16 @@ export default function Home() {
           </div>
         )}
       </section>
+      <a
+        href="https://wa.me/94760160189" // Replace with your WhatsApp number
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed z-50 bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg p-4 flex items-center justify-center transition-all border-4 border-white"
+        style={{ boxShadow: "0 4px 24px 0 rgba(37, 211, 102, 0.4)" }}
+        aria-label="Chat on WhatsApp"
+      >
+        <FaWhatsapp size={32} />
+      </a>
     </main>
   );
 }

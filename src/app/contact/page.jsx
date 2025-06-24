@@ -27,7 +27,7 @@ export default function ContactPage() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#181111] text-[#fff8f0] px-4 py-12">
       <div className="max-w-xl w-full bg-[#231313] rounded-lg shadow-lg p-8 border border-[#2d1616]">
         <div className="flex flex-col items-center mb-6">
-          <Image src="/spice-logo.png" alt="Achcharu Logo" width={60} height={60} className="rounded-full mb-2" />
+          <Image src="/logo/logo.png" alt="Achcharu.lk" width={60} height={60} className="rounded-full mb-2" />
           <h1 className="text-3xl font-bold text-orange-400 mb-2">Contact Us</h1>
           <p className="text-orange-200 text-center">We'd love to hear from you! Fill out the form below or reach us directly at <a href="mailto:info@achcharu.com" className="underline hover:text-orange-400">info@achcharu.com</a>.</p>
         </div>
