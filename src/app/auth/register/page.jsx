@@ -1,42 +1,47 @@
 "use client";
-import { useState } from "react";
-import Link from "next/link";
-import { register } from "../../../../lib/auth";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+// import Link from "next/link";
+// import { register } from "../../../../lib/auth";
 
 export default function AdminRegister() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirm, setConfirm] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const router = useRouter();
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confirm, setConfirm] = useState("");
+  // const [error, setError] = useState("");
+  // const [success, setSuccess] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setSuccess("");
-    if (!email || !password || !confirm) {
-      setError("Please fill all fields.");
-      return;
-    }
-    if (password !== confirm) {
-      setError("Passwords do not match.");
-      return;
-    }
-    try {
-      await register(email, password);
-      setSuccess("Registration successful! You can now log in.");
-      setEmail("");
-      setPassword("");
-      setConfirm("");
-      window.location.href = "/auth/login"; // Redirect to login after successful registration
-    } catch (err) {
-      setError(err.message || "Failed to register.");
-    }
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setError("");
+  //   setSuccess("");
+  //   if (!email || !password || !confirm) {
+  //     setError("Please fill all fields.");
+  //     return;
+  //   }
+  //   if (password !== confirm) {
+  //     setError("Passwords do not match.");
+  //     return;
+  //   }
+  //   try {
+  //     await register(email, password);
+  //     setSuccess("Registration successful! You can now log in.");
+  //     setEmail("");
+  //     setPassword("");
+  //     setConfirm("");
+  //     window.location.href = "/auth/login"; // Redirect to login after successful registration
+  //   } catch (err) {
+  //     setError(err.message || "Failed to register.");
+  //   }
+  // };
+  useEffect(() => {
+    router.push("/auth/login"); // Redirect to login page
+  }, [router])
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#181111] text-[#fff8f0] font-sans">
-      <form onSubmit={handleSubmit} className="bg-[#231313] p-8 rounded-2xl shadow-xl w-full max-w-md border border-orange-900 animate-fadeIn">
+      {/* <form onSubmit={handleSubmit} className="bg-[#231313] p-8 rounded-2xl shadow-xl w-full max-w-md border border-orange-900 animate-fadeIn">
         <h1 className="text-2xl font-bold text-orange-400 mb-6 text-center">Admin Register</h1>
         {error && <div className="mb-4 text-red-400 text-center">{error}</div>}
         {success && <div className="mb-4 text-green-400 text-center">{success}</div>}
@@ -50,7 +55,7 @@ export default function AdminRegister() {
         <div className="mt-4 text-center text-orange-200">
           Already have an account? <Link href="/auth/login" className="text-orange-400 hover:underline">Login</Link>
         </div>
-      </form>
+      </form> */}
       <style jsx>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(20px); }

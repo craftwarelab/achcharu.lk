@@ -26,21 +26,21 @@ export default function Footer() {
           </div>
           <div className="mt-6 flex items-center gap-2">
             <Image src="/logo/logo.png" alt="Achcharu.lk" width={36} height={36} className="rounded-full border border-orange-500" />
-            <span className="font-extrabold text-orange-300 text-lg tracking-wider">achcharu</span>
+            <span className="font-extrabold text-orange-300 text-lg tracking-wider">Achcharu</span>
           </div>
         </div>
         {/* Social Media & Other Details */}
         <div>
           <h3 className="text-lg font-extrabold mb-4 text-orange-400 tracking-wide">Connect With Us</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-orange-200 focus:text-orange-300 transition" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.instagram.com/krfoodsk" className="hover:text-orange-200 focus:text-orange-300 transition" target="_blank" rel="noopener noreferrer">Instagram</a></li>
             <li><a href="https://www.facebook.com/profile.php?id=61577155109509" className="hover:text-orange-200 focus:text-orange-300 transition" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             <li><a href="https://www.youtube.com/@AchcharuLK-r2v" className="hover:text-orange-200 focus:text-orange-300 transition" target="_blank" rel="noopener noreferrer">YouTube</a></li>
           </ul>
           <div className="mt-8 text-xs text-orange-300 space-y-1">
             <div>© {new Date().getFullYear()} Achcharu. All rights reserved.</div>
             <div>Colombo, Sri Lanka</div>
-            <div>Email: <a href="mailto:info@achcharu.com" className="underline hover:text-orange-200 focus:text-orange-300">info@achcharu.com</a></div>
+            <div>Email: <a href="mailto:info@achcharu.lk" className="underline hover:text-orange-200 focus:text-orange-300">info@achcharu.lk</a></div>
           </div>
         </div>
       </div>

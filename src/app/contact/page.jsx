@@ -29,7 +29,7 @@ export default function ContactPage() {
         <div className="flex flex-col items-center mb-6">
           <Image src="/logo/logo.png" alt="Achcharu.lk" width={60} height={60} className="rounded-full mb-2" />
           <h1 className="text-3xl font-bold text-orange-400 mb-2">Contact Us</h1>
-          <p className="text-orange-200 text-center">We'd love to hear from you! Fill out the form below or reach us directly at <a href="mailto:info@achcharu.com" className="underline hover:text-orange-400">info@achcharu.com</a>.</p>
+          <p className="text-orange-200 text-center">We'd love to hear from you! Fill out the form below or reach us directly at <a href="mailto:info@achcharu.lk" className="underline hover:text-orange-400">info@achcharu.lk</a>.</p>
         </div>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
@@ -61,11 +61,11 @@ export default function ContactPage() {
         </form>
         <div className="mt-8 text-sm text-orange-300 text-center">
           <div>Colombo, Sri Lanka</div>
-          <div>Phone: <a href="tel:+94112223344" className="underline hover:text-orange-400">+94 11 222 3344</a></div>
+          <div>Phone: <a href="tel:+94760160189" className="underline hover:text-orange-400">+94 76 01 60 189</a></div>
           <div className="mt-2 flex justify-center gap-4">
-            <a href="#" className="hover:text-orange-400" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="#" className="hover:text-orange-400" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="#" className="hover:text-orange-400" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://www.instagram.com/krfoodsk" className="hover:text-orange-400" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=61577155109509" className="hover:text-orange-400" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.youtube.com/@AchcharuLK-r2v" className="hover:text-orange-400" target="_blank" rel="noopener noreferrer">YouTube</a>
           </div>
         </div>
       </div>
