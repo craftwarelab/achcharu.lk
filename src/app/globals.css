@@ -32,5 +32,5 @@ a {
 }
 
 a:hover {
-  color: var(--accent);
+  color: var(--foreground);
 }

@@ -300,7 +300,7 @@ export default function Home() {
                   {recipe.desc}
                 </div>
                 <Link
-                  href={`/recipes/${recipe.slug}`}
+                  href={`/single-recipes/${recipe.slug}`}
                   className="mt-auto bg-orange-500 hover:bg-orange-600 text-white font-bold py-1 px-4 rounded-full shadow transition"
                 >
                   Read More

@@ -76,8 +76,11 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#231313] via-[#181111] to-[#2d1616] text-[#fff8f0] px-4 py-12">
       <div className="max-w-xl w-full bg-[#231313] rounded-2xl shadow-2xl p-8 border border-[#d7263d] flex flex-col items-center relative">
-        <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-orange-500 rounded-full p-2 shadow-lg">
-          <Image src={product.image} alt={product.name} width={120} height={120} className="rounded-full border-4 border-orange-800" />
+        <div className="shadow-lg">
+          <Image src={product.image} alt={product.name}
+            width={620}
+            height={320}
+            className=" w-[620px] h-[320px] border-2 border-orange-800 object-cover rounded-2xl shadow-lg" />
         </div>
         <h1 className="text-3xl font-extrabold text-orange-400 mb-2 mt-16 text-center drop-shadow">Order: {product.name}</h1>
         <p className="text-orange-200 text-center mb-4 italic">{product.desc}</p>

@@ -52,7 +52,7 @@ export default function Navbar() {
             className="rounded-full border border-orange-200 group-hover:scale-110 transition-transform"
           />
           <span className="text-2xl font-extrabold text-orange-400 tracking-wider drop-shadow">
-            achcharu
+            Achcharu
           </span>
         </Link>
         {/* Hamburger for mobile */}
