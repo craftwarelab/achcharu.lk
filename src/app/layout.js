@@ -38,6 +38,9 @@ export const metadata = {
       },
     ],
   },
+  other: {
+    "google-site-verification": "8YTEuT5Pj5_uMqHHRmI3caDNuzh0i-G9R8S9lKYCJjI",
+  },
 };
 
 export default function RootLayout({ children }) {
