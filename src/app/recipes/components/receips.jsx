@@ -4,22 +4,30 @@ import Link from "next/link";
 import Image from "next/image";
 import { getAllRecipes } from "../../../../lib/database";
 
-export default function RecipesPage() {
+export default function RecipesPage({response}) {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getAllRecipes()
-      .then((data) => {
-        setRecipes(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+    // getAllRecipes()
+    //   .then((data) => {
+    //     setRecipes(data);
+    //     setLoading(false);
+    //   })
+    //   .catch((err) => {
+    //     setError(err.message);
+    //     setLoading(false);
+    //   });
+    if (response) {
+      setRecipes(response);
+      setLoading(false);
+      setError(null);
+    } else {
+      setError("Failed to load recipes.");
+      setLoading(false);
+    }
+  }, [response]);
 
   return (
     <main className="min-h-screen bg-[#181111] text-[#fff8f0] px-4 py-12" aria-labelledby="recipes-heading">

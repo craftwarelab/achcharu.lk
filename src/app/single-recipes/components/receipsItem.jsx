@@ -4,25 +4,30 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { getRecipeBySlug } from "../../../../lib/database"; // Adjust the import path as necessary
 
-export default function SingleRecipePage({recipeID}) {
-//   const { recipeID } = useParams();
+export default function SingleRecipePage({ response }) {
+  //   const { recipeID } = useParams();
   const router = useRouter();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!recipeID) return;
-    getRecipeBySlug(recipeID)
-      .then((found) => {
-        setRecipe(found);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, [recipeID]);
+    if (!response) return;
+    // getRecipeBySlug(recipeID)
+    //   .then((found) => {
+    //     setRecipe(found);
+    //     setLoading(false);
+    //   })
+    //   .catch((err) => {
+    //     setError(err.message);
+    //     setLoading(false);
+    //   });
+    if (response) {
+      setRecipe(response);
+      setLoading(false);
+      setError(null);
+    }
+  }, [response]);
 
   if (loading) {
     return (

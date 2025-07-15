@@ -6,7 +6,7 @@ import SingleRecipePage from "../components/receipsItem";
 export async function generateMetadata({ params }) {
   const { recipeID } = params;
   let recipe;
-  
+
   try {
     recipe = await getRecipeBySlug(recipeID); // Assuming this function fetches the recipe data
   } catch (error) {
@@ -29,9 +29,15 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function Page({ params }) {
+export default async function Page({ params }) {
   const { recipeID } = params;
+  let response;
+  try {
+    response = await getRecipeBySlug(recipeID);
+  } catch (error) {
+    console.error("Error fetching recipe:", error);
+  }
   return (
-    <SingleRecipePage recipeID={recipeID} />
+    <SingleRecipePage response={response} />
   );
 }

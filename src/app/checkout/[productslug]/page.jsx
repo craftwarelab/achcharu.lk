@@ -4,7 +4,7 @@ import { useParams, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { getProductBySlug, placeOrder } from "../../../../lib/database"; // <-- import placeOrder
 
-const WHATSAPP_NUMBER = "+94771469494"; // Replace with your business WhatsApp number
+const WHATSAPP_NUMBER = "+94760160189"; // Replace with your business WhatsApp number
 
 export default function CheckoutPage() {
   const { productslug } = useParams();

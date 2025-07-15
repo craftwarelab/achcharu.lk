@@ -1,7 +1,9 @@
-"use client";
 import React from "react";
 
-const AboutPage = () => {
+export const metadata = {
+  title: "About",
+}
+export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#181111] text-[#fff8f0] flex flex-col">
       {/* Hero Section */}
@@ -63,5 +65,3 @@ const AboutPage = () => {
     </div>
   );
 };
-
-export default AboutPage;
