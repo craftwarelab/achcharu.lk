@@ -445,7 +445,7 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto mb-6"></div>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Real reviews from customers who can't get enough of our authentic flavors
+              Real reviews from customers who can&apos;t get enough of our authentic flavors
             </p>
           </div>
           
@@ -457,7 +457,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-orange-100 mb-6 italic leading-relaxed">
-                "The best spicy pickles I've ever tasted! The heat level is perfect and the flavors are so authentic. My family is obsessed!"
+                The best spicy pickles I&apos;ve ever tasted! The heat level is perfect and the flavors are so authentic. My family is obsessed!
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold">
@@ -477,7 +477,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-orange-100 mb-6 italic leading-relaxed">
-                "Amazing recipes! I've tried 5 different ones and each was better than the last. The instructions are so clear and easy to follow."
+                Amazing recipes! I&apos;ve tried 5 different ones and each was better than the last. The instructions are so clear and easy to follow.
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold">
@@ -497,7 +497,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-orange-100 mb-6 italic leading-relaxed">
-                "Authentic Sri Lankan taste! Reminds me of my grandmother's cooking. The spice levels are perfect - not too mild, not too hot."
+                Authentic Sri Lankan taste! Reminds me of my grandmother&apos;s cooking. The spice levels are perfect - not too mild, not too hot.
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold">
