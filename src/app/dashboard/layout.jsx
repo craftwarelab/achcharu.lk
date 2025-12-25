@@ -42,7 +42,7 @@ export default function AdminLayout({ children }) {
       <AdminSidebar />
       <div className="flex-1 flex flex-col">
         <AdminNavbar />
-        <main className="flex-1 p-8 bg-[#231313] rounded-l-3xl shadow-xl m-4">
+        <main className="flex-1 p-8 bg-[#231313] rounded-l-3xl shadow-xl m-4 w-6xl mx-auto">
           {children}
         </main>
       </div>

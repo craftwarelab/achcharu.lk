@@ -46,18 +46,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* <head>
-        <title>Achcharu - Authentic Sri Lankan Spicy Foods</title>
-        <meta name="description" content="Achcharu brings the taste of Sri Lankan home-made spicy foods to your table. Discover authentic recipes, quality ingredients, and more." />
-        <meta name="keywords" content="Achcharu, Sri Lankan, spicy food, recipes, authentic, home-made" />
-        <meta name="author" content="Achcharu Team" />
-        <meta property="og:title" content="Achcharu - Authentic Sri Lankan Spicy Foods" />
-        <meta property="og:description" content="Discover authentic Sri Lankan spicy foods and recipes." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourdomain.com/" />
-        <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head> */}
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

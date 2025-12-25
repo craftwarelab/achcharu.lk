@@ -180,7 +180,7 @@ export default function DashboardRecipes() {
         <div className="text-orange-300 animate-pulse">Loading...</div>
       ) : (
         <>
-        <table className="w-full bg-[#231313] rounded-xl border border-orange-900">
+        <table className="w-full bg-[#231313] rounded-xl border border-orange-900 ">
           <thead>
             <tr className="text-orange-400">
               <th className="p-2">Name</th>
@@ -188,8 +188,8 @@ export default function DashboardRecipes() {
               <th className="p-2">Category</th>
               <th className="p-2">Description</th>
               <th className="p-2">Image</th>
-              <th className="p-2">Ingredients</th>
-              <th className="p-2">Steps</th>
+              {/* <th className="p-2">Ingredients</th>
+              <th className="p-2">Steps</th> */}
               <th className="p-2">Actions</th>
             </tr>
           </thead>
@@ -201,8 +201,8 @@ export default function DashboardRecipes() {
                 <td className="p-2">{r.category}</td>
                 <td className="p-2 max-w-xs truncate" title={r.desc}>{r.desc}</td>
                 <td className="p-2">{r.image && <img src={r.image} alt={r.name} className="w-16 h-12 object-cover rounded" />}</td>
-                <td className="p-2 max-w-xs truncate" title={(r.ingredients || []).join(", ")}>{(r.ingredients || []).slice(0,2).join(", ")}{(r.ingredients && r.ingredients.length > 2) ? '...' : ''}</td>
-                <td className="p-2 max-w-xs truncate" title={(r.steps || []).join(" | ")}>{(r.steps || []).slice(0,1).join(" | ")}{(r.steps && r.steps.length > 1) ? '...' : ''}</td>
+                {/* <td className="p-2 max-w-xs truncate" title={(r.ingredients || []).join(", ")}>{(r.ingredients || []).slice(0,2).join(", ")}{(r.ingredients && r.ingredients.length > 2) ? '...' : ''}</td>
+                <td className="p-2 max-w-xs truncate" title={(r.steps || []).join(" | ")}>{(r.steps || []).slice(0,1).join(" | ")}{(r.steps && r.steps.length > 1) ? '...' : ''}</td> */}
                 <td className="p-2 flex gap-2">
                   <button onClick={() => handleEdit(r)} className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">Edit</button>
                   <button onClick={() => handleDelete(r.id)} className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded">Delete</button>

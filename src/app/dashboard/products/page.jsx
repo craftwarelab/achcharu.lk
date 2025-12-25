@@ -387,7 +387,7 @@ export default function DashboardProducts() {
               <th className="p-2">Stock</th>
               <th className="p-2">Unit</th>
               <th className="p-2">Discount</th>
-              <th className="p-2">Description</th>
+              {/* <th className="p-2">Description</th> */}
               <th className="p-2">Image</th>
               <th className="p-2">Price</th>
               <th className="p-2">Quantity</th>
@@ -413,7 +413,7 @@ export default function DashboardProducts() {
                     ? `Buy ${p.discountQty}+ get Rs.${p.discountAmount} off`
                     : "-"}
                 </td>
-                <td className="p-2 max-w-xs truncate" title={p.desc}>{p.desc}</td>
+                {/* <td className="p-2 max-w-xs truncate" title={p.desc}>{p.desc}</td> */}
                 <td className="p-2">
                   {p.image && <img src={p.image} alt={p.name} className="w-16 h-12 object-cover rounded" />}
                 </td>
